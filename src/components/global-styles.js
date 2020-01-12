@@ -1,11 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
 
 const GlobalStyles = createGlobalStyle`
-  html, body {
-    background: ${({ theme }) => theme.colors.navy};
-    color: ${({ theme }) => theme.colors.white};
-  }
-
   /* http://meyerweb.com/eric/tools/css/reset/
     v2.0 | 20110126
     License: none (public domain)
@@ -53,6 +48,47 @@ const GlobalStyles = createGlobalStyle`
   table {
     border-collapse: collapse;
     border-spacing: 0;
+  }
+
+  /* apply a natural box layout model to all elements, but allowing components to change */
+  html {
+    box-sizing: border-box;
+  }
+  *, *:before, *:after {
+    box-sizing: inherit;
+  }
+
+  /* set up custom fonts */
+  @font-face {
+    font-family: 'Druk';
+    src: local('Druk Medium'), local('Druk-Medium'),
+        url('src/fonts/Druk-Medium.woff2') format('woff2'),
+        url('src/fonts/Druk-Medium.woff') format('woff');
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  @font-face {
+    font-family: 'Druk';
+    src: local('Druk Heavy Italic'), local('Druk-HeavyItalic'),
+        url('src/fonts/Druk-HeavyItalic.woff2') format('woff2'),
+        url('src/fonts/Druk-HeavyItalic.woff') format('woff');
+    font-weight: 900;
+    font-style: italic;
+  }
+
+  html, body {
+    background: ${({ theme }) => theme.colors.navy};
+    color: ${({ theme }) => theme.colors.white};
+    font-family: 'Druk';
+    font-weight: 500;
+    font-style: normal;
+  }
+
+  button {
+    font-family: 'Druk';
+    font-weight: 900;
+    font-style: italic;
   }
 `
 
