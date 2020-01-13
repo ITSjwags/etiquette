@@ -35,6 +35,28 @@ const IndexPage = props => {
         </Col1>
 
         <Col2>
+          <Col2Header>
+            <div>
+              <Image src="whiskey.png" alt="Whiskey" />
+            </div>
+            <div>
+              <Image src="vans.png" alt="Vans" />
+            </div>
+            <div>
+              <Image src="slack.png" alt="Slack" />
+            </div>
+            <Col2Img4>
+              <Col2Img4Top>
+                <Image src="premium.png" alt="Premium" />
+                <Image src="fishbowl.png" alt="Fish Bowl" />
+              </Col2Img4Top>
+              <Col2Img4Bottom>
+                <Image src="small-hat.png" alt="Hat" />
+                <Image src="computer.png" alt="Computer" />
+              </Col2Img4Bottom>
+            </Col2Img4>
+          </Col2Header>
+
           <Box>
             <Title>
               ‘Tis The Season To Small Talk With Your Significant Other’s
@@ -55,6 +77,21 @@ const IndexPage = props => {
           </Col3Img2>
           <div>
             <Image src="camera.png" alt="Camera" />
+          </div>
+          <Col3Img3>
+            <Image src="apple-watch.png" alt="Apple watch" />
+          </Col3Img3>
+          <Col3Img4>
+            <Image src="vape.png" alt="Vape" />
+          </Col3Img4>
+          <div>
+            <Image src="controlZ.png" alt="Control Z" />
+          </div>
+          <Col3Img6>
+            <Image src="pencil.png" alt="D&AD Pencil" />
+          </Col3Img6>
+          <div>
+            <Image src="birkenstock.png" alt="Birkenstock" />
           </div>
         </Col3>
       </Grid>
@@ -96,20 +133,31 @@ const IndexPage = props => {
 }
 
 const Wrapper = styled.div`
-  padding: 20px;
+  display: grid;
+  grid-template-rows: 6fr 1fr;
+  height: 100vh;
+  padding: 30px;
 `
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 1fr 4fr 1fr;
-  grid-gap: 20px;
-  margin-bottom: 20px;
+  grid-template-columns: 1fr;
+  grid-gap: 15px;
+  margin-bottom: 30px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: 1fr 3fr 1fr;
+  }
 `
 
 const Col1 = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+  display: none;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
 `
 const Col1Img2 = styled.div`
   grid-row: span 2;
@@ -118,22 +166,41 @@ const Col1Img6 = styled.div`
   grid-column: span 2;
 `
 
-const Col2 = styled.div``
-
-const Col3 = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-gap: 20px;
+const Col2 = styled.div`
+  display: flex;
+  flex-direction: column;
 `
-const Col3Img2 = styled.div`
-  grid-row: span 2;
+const Col2Header = styled.div`
+  display: grid;
+  grid-template-columns: 0.91fr 1fr 0.82fr 0.8fr 0.8fr;
+  grid-gap: 15px;
+`
+const Col2Img4 = styled.div`
+  display: grid;
+  grid-column: span 2;
+  grid-gap: 15px;
+  grid-template-rows: 1fr 1.75fr;
+`
+const Col2Img4Top = styled.div`
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  grid-gap: 10px;
+`
+const Col2Img4Bottom = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1.25fr;
+  grid-gap: 10px;
 `
 
 const Box = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.green};
-  margin: 20px auto 0;
+  display: grid;
+  flex: 1;
+  margin: 30px auto 0;
+  place-items: center;
   position: relative;
   text-align: center;
+  width: 100%;
   max-width: 1086px;
 `
 
@@ -141,29 +208,55 @@ const Title = styled.h2`
   background: ${({ theme }) => theme.colors.navy};
   color: ${({ theme }) => theme.colors.green};
   display: inline-block;
-  font-size: 2.3vw;
+  font-size: 4vw;
+  left: 50%;
   padding: 0 15px;
-  position: relative;
-  text-align: center;
-  top: -1.4vw;
+  position: absolute;
+  top: -1.3vw;
+  transform: translateX(-50%);
+  white-space: nowrap;
 
-  @media (min-width: 980px) {
-    font-size: 41px;
-    top: -21px;
+  @media (min-width: 768px) {
+    font-size: 2.5vw;
   }
 `
 
 const ImageContainer = styled.div`
   margin: 0 auto;
-  padding: 35px;
+  padding: 35px 10vw;
   max-width: 735px;
   width: 100%;
 `
 
+const Col3 = styled.div`
+  display: none;
+
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px;
+  }
+`
+const Col3Img2 = styled.div`
+  grid-row: span 2;
+`
+const Col3Img3 = styled.div`
+  grid-column: span 2;
+`
+const Col3Img4 = styled.div`
+  grid-row: span 2;
+`
+const Col3Img6 = styled.div`
+  grid-row: span 2;
+`
+
 const Buttons = styled.div`
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
   grid-gap: 15px;
+
+  @media (min-width: 768px) {
+    grid-template-columns: repeat(5, 1fr);
+  }
 `
 
 export default withTheme(IndexPage)
