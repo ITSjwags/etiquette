@@ -5,6 +5,8 @@ import Button from '../components/button'
 import Image from '../components/image'
 import SEO from '../components/seo'
 
+import bannerBG from '../images/bannerBG.png'
+
 const IndexPage = props => {
   const { theme } = props
 
@@ -65,6 +67,7 @@ const IndexPage = props => {
             <ImageContainer>
               <Image src="logo@2x.png" alt="Plus One Etiquette" />
             </ImageContainer>
+            <Banner>A GUIDE TO MINGLING WITH ADVERTISING TYPES</Banner>
           </Box>
         </Col2>
 
@@ -134,9 +137,12 @@ const IndexPage = props => {
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 6fr 1fr;
-  height: 100vh;
+  min-height: 100vh;
   padding: 30px;
+
+  @media (min-width: 769px) {
+    grid-template-rows: 6fr 1fr;
+  }
 `
 
 const Grid = styled.div`
@@ -145,7 +151,7 @@ const Grid = styled.div`
   grid-gap: 15px;
   margin-bottom: 30px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     grid-template-columns: 1fr 3fr 1fr;
   }
 `
@@ -153,7 +159,7 @@ const Grid = styled.div`
 const Col1 = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
@@ -196,12 +202,10 @@ const Box = styled.div`
   border: 1px solid ${({ theme }) => theme.colors.green};
   display: grid;
   flex: 1;
-  margin: 30px auto 0;
+  margin: 30px auto;
   place-items: center;
   position: relative;
-  text-align: center;
   width: 100%;
-  max-width: 1086px;
 `
 
 const Title = styled.h2`
@@ -216,22 +220,40 @@ const Title = styled.h2`
   transform: translateX(-50%);
   white-space: nowrap;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     font-size: 2.5vw;
   }
 `
 
 const ImageContainer = styled.div`
   margin: 0 auto;
-  padding: 35px 10vw;
-  max-width: 735px;
+  padding: 15px 5vw 30px;
   width: 100%;
+`
+
+const Banner = styled.h3`
+  background: url(${bannerBG}) no-repeat center center;
+  background-size: cover;
+  color: ${({ theme }) => theme.colors.navy};
+  display: inline-block;
+  font-size: 4vw;
+  left: 50%;
+  padding: 5px 50px;
+  position: absolute;
+  bottom: -3.5vw;
+  transform: translateX(-50%);
+  white-space: nowrap;
+
+  @media (min-width: 769px) {
+    font-size: 2.5vw;
+    bottom: -1.9vw;
+  }
 `
 
 const Col3 = styled.div`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-gap: 15px;
@@ -254,7 +276,7 @@ const Buttons = styled.div`
   display: grid;
   grid-gap: 15px;
 
-  @media (min-width: 768px) {
+  @media (min-width: 769px) {
     grid-template-columns: repeat(5, 1fr);
   }
 `

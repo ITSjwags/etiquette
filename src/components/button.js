@@ -18,7 +18,7 @@ const StyledButton = styled.button`
   border-radius: 10px;
   color: ${({ color }) => color};
   cursor: pointer;
-  font-size: 3.3vw;
+  font-size: calc(16px + 1vw);
   line-height: 1;
   padding: 10px;
   text-transform: uppercase;
@@ -31,6 +31,10 @@ const StyledButton = styled.button`
   &:active,
   &:focus {
     transform: scale(1);
+  }
+
+  @media (min-width: 768px) {
+    font-size: 3.3vw;
   }
 `
 
