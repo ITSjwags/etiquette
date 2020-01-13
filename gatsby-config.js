@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `Etiquette`,
+    title: `Plus-One Etiquette`,
     description: `A GUIDE TO MINGLING WITH ADVERTISING TYPES.`,
     author: `@itsjwags`,
   },

@@ -1,5 +1,5 @@
 {
-  "name": "etiquette",
+  "name": "plus-one-etiquette",
   "private": true,
   "description": "A GUIDE TO MINGLING WITH ADVERTISING TYPES",
   "version": "0.1.0",
@@ -26,7 +26,7 @@
   },
   "keywords": [
     "gatsby",
-    "etiquette",
+    "plus one etiquette",
     "advertising"
   ],
   "license": "MIT",

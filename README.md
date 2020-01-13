@@ -1,5 +1,5 @@
 <h1 align="center">
-  Plus One Etiquette
+  Plus-One Etiquette
 </h1>
 
 <p align="center">
