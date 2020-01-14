@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import { Druk, Druk2, DrukHeavy, DrukHeavy2 } from '../fonts'
 
 const GlobalStyles = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -62,8 +63,8 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Druk';
     src: local('Druk Medium'), local('Druk-Medium'),
-        url('src/fonts/Druk-Medium.woff2') format('woff2'),
-        url('src/fonts/Druk-Medium.woff') format('woff');
+        url(${Druk2}) format('woff2'),
+        url(${Druk}) format('woff');
     font-weight: 500;
     font-style: normal;
   }
@@ -71,8 +72,8 @@ const GlobalStyles = createGlobalStyle`
   @font-face {
     font-family: 'Druk';
     src: local('Druk Heavy Italic'), local('Druk-HeavyItalic'),
-        url('src/fonts/Druk-HeavyItalic.woff2') format('woff2'),
-        url('src/fonts/Druk-HeavyItalic.woff') format('woff');
+        url(${DrukHeavy2}) format('woff2'),
+        url(${DrukHeavy}) format('woff');
     font-weight: 900;
     font-style: italic;
   }
