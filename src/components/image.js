@@ -38,6 +38,8 @@ const Image = props => {
           <Img
             alt={alt}
             fluid={image.node.childImageSharp.fluid}
+            imgStyle={{ objectFit: 'contain' }}
+            style={{ maxHeight: '100%' }}
             loading="lazy"
           />
         )

@@ -6,7 +6,12 @@ const Button = props => {
   const { background, color, text, onClick } = props
 
   return (
-    <StyledButton background={background} color={color} onClick={onClick}>
+    <StyledButton
+      background={background}
+      color={color}
+      onClick={onClick}
+      title="Keep clicking to see more answers!"
+    >
       {text}
     </StyledButton>
   )

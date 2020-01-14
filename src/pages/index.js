@@ -1,14 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled, { withTheme } from 'styled-components'
-
 import Button from '../components/button'
 import Image from '../components/image'
 import SEO from '../components/seo'
-
-import bannerBG from '../images/bannerBG.png'
+import copy from '../copy'
 
 const IndexPage = props => {
   const { theme } = props
+  const [activeCategory, setActiveCategory] = useState('default')
+  const [answerNumber, setAnswerNumber] = useState(0)
+
+  const onClickButton = category => {
+    const totalCategories = copy[category].content.length
+    const nextNumber =
+      answerNumber >= totalCategories - 1 ? 0 : answerNumber + 1
+
+    setActiveCategory(category)
+    console.log({ copy, totalCategories, answerNumber, nextNumber })
+    if (category === activeCategory) {
+      console.log('yes')
+      setAnswerNumber(nextNumber)
+    }
+  }
 
   return (
     <Wrapper>
@@ -59,15 +72,48 @@ const IndexPage = props => {
             </Col2Img4>
           </Col2Header>
 
-          <Box>
-            <Title>
-              ‘Tis The Season To Small Talk With Your Significant Other’s
-              Co-Workers
+          <Box activeCategory={activeCategory}>
+            <Title activeCategory={activeCategory}>
+              {copy[activeCategory].title}
             </Title>
-            <ImageContainer>
-              <Image src="logo@2x.png" alt="Plus One Etiquette" />
-            </ImageContainer>
-            <Banner>A GUIDE TO MINGLING AT AN AGENCY HOLIDAY PARTY</Banner>
+            <Content>
+              <ImageContainer activeCategory={activeCategory}>
+                <Image
+                  src={
+                    copy[activeCategory].content.map(item => item.icon)[
+                      answerNumber
+                    ]
+                  }
+                  alt={
+                    copy[activeCategory].content.map(item => item.alt)[
+                      answerNumber
+                    ]
+                  }
+                />
+              </ImageContainer>
+              {copy[activeCategory].content.map(item => item.title) && (
+                <ContentTitle activeCategory={activeCategory}>
+                  {
+                    copy[activeCategory].content.map(item => item.title)[
+                      answerNumber
+                    ]
+                  }
+                </ContentTitle>
+              )}
+            </Content>
+            <Banner activeCategory={activeCategory}>
+              <Image
+                src={copy[activeCategory].bannerBG}
+                alt="Banner background"
+              />
+              <BannerTitle>
+                {
+                  copy[activeCategory].content.map(item => item.banner)[
+                    answerNumber
+                  ]
+                }
+              </BannerTitle>
+            </Banner>
           </Box>
         </Col2>
 
@@ -108,7 +154,7 @@ const IndexPage = props => {
         <Button
           background={theme.colors.brown}
           color={theme.colors.navy}
-          onClick={() => console.log('click')}
+          onClick={() => onClickButton('copywriter')}
           text="COPYWRITER"
         />
         <Button
@@ -183,7 +229,10 @@ const Col1Img6 = styled(Col1Img)`
   column-span: all;
 `
 
-const Col2 = styled.div``
+const Col2 = styled.div`
+  display: flex;
+  flex-direction: column;
+`
 const Col2Header = styled.div`
   display: grid;
   grid-template-columns: 0.84fr 0.9fr 0.74fr 0.7fr 0.7fr;
@@ -207,15 +256,25 @@ const Col2Img4Bottom = styled.div`
 `
 
 const Box = styled.div`
-  border: 1px solid ${({ theme }) => theme.colors.red};
+  border: 1px solid
+    ${({ activeCategory, theme }) => {
+      if (activeCategory === 'copywriter') return theme.colors.brown
+      return theme.colors.red
+    }};
+  display: grid;
+  flex: 1;
   margin: 25px auto;
+  place-items: center;
   position: relative;
   width: 100%;
 `
 
 const Title = styled.h2`
   background: ${({ theme }) => theme.colors.navy};
-  color: ${({ theme }) => theme.colors.red};
+  color: ${({ activeCategory, theme }) => {
+    if (activeCategory === 'copywriter') return theme.colors.brown
+    return theme.colors.red
+  }};
   display: inline-block;
   font-size: 4vw;
   left: 50%;
@@ -230,28 +289,59 @@ const Title = styled.h2`
   }
 `
 
-const ImageContainer = styled.div`
-  margin: 0 auto;
+const Content = styled.div`
   padding: 20px 5vw 30px;
   width: 100%;
 `
+const ContentTitle = styled.p`
+  color: ${({ activeCategory, theme }) => {
+    if (activeCategory === 'copywriter') return theme.colors.brown
+    return theme.colors.red
+  }};
+  font-size: 4vw;
+  text-align: center;
 
-const Banner = styled.h3`
-  background: url(${bannerBG}) no-repeat center center;
-  background-size: cover;
+  @media (min-width: 769px) {
+    font-size: 2.5vw;
+  }
+`
+
+const ImageContainer = styled.div`
+  display: grid;
+  height: ${({ activeCategory }) => {
+    if (activeCategory === 'default') return '100%'
+    return '20vh'
+  }};
+  max-height: ${({ activeCategory }) => {
+    if (activeCategory === 'default') return '100%'
+    return '100%'
+  }};
+  margin: 0 auto;
+  max-width: ${({ activeCategory }) => {
+    if (activeCategory === 'default') return '100%'
+    return '30%'
+  }};
+`
+
+const Banner = styled.div`
+  bottom: -2vw;
+  left: 50%;
+  margin: 0 auto;
+  position: absolute;
+  transform: translateX(-50%);
+  width: 70%;
+`
+const BannerTitle = styled.h3`
   color: ${({ theme }) => theme.colors.navy};
-  display: inline-block;
   font-size: 4vw;
   left: 50%;
-  padding: 4px 35px 6px;
   position: absolute;
-  bottom: -3.5vw;
-  transform: translateX(-50%);
+  top: 50%;
+  transform: translate(-50%, -57%);
   white-space: nowrap;
 
   @media (min-width: 769px) {
     font-size: 2.5vw;
-    bottom: -1.9vw;
   }
 `
 
