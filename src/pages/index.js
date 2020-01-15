@@ -149,48 +149,60 @@ const IndexPage = props => {
         </Col3>
       </Grid>
 
-      <Buttons>
-        <Button
-          background={theme.colors.brown}
-          color={theme.colors.navy}
-          onClick={() => onClickButton('copywriter')}
-          text="COPYWRITER"
-        />
-        <Button
-          background={theme.colors.green}
-          color={theme.colors.red}
-          onClick={() => onClickButton('ad')}
-          text="ART DIRECTOR DESIGNER"
-        />
-        <Button
-          background={theme.colors.red}
-          color={theme.colors.green}
-          onClick={() => onClickButton('am')}
-          text="ACCOUNT MANAGER"
-        />
-        <Button
-          background={theme.colors.blue}
-          color={theme.colors.red}
-          onClick={() => onClickButton('cd')}
-          text="CREATIVE DIRECTOR"
-        />
-        <Button
-          background={theme.colors.green}
-          color={theme.colors.navy}
-          onClick={() => onClickButton('producer')}
-          text="PRODUCER"
-        />
-      </Buttons>
+      <Row>
+        <Buttons>
+          <Button
+            background={theme.colors.brown}
+            color={theme.colors.navy}
+            onClick={() => onClickButton('copywriter')}
+            text="COPYWRITER"
+          />
+          <Button
+            background={theme.colors.green}
+            color={theme.colors.red}
+            onClick={() => onClickButton('ad')}
+            text="ART DIRECTOR DESIGNER"
+          />
+          <Button
+            background={theme.colors.red}
+            color={theme.colors.green}
+            onClick={() => onClickButton('am')}
+            text="ACCOUNT MANAGER"
+          />
+          <Button
+            background={theme.colors.blue}
+            color={theme.colors.red}
+            onClick={() => onClickButton('cd')}
+            text="CREATIVE DIRECTOR"
+          />
+          <Button
+            background={theme.colors.green}
+            color={theme.colors.navy}
+            onClick={() => onClickButton('producer')}
+            text="PRODUCER"
+          />
+        </Buttons>
 
-      <Bottom>
-        <BottomImage>
-          <Image src="hand.png" alt="Hand" />
-        </BottomImage>
-        <BottomText>CHOOSE YOUR MINGLING MATCH</BottomText>
-        <BottomImage>
-          <Image src="hand-right.png" alt="Hand" />
-        </BottomImage>
-      </Bottom>
+        <Bottom>
+          <BottomImage>
+            <MobileOnly>
+              <Image src="hand-right.png" alt="Hand" />
+            </MobileOnly>
+            <DesktopOnly>
+              <Image src="hand.png" alt="Hand" />
+            </DesktopOnly>
+          </BottomImage>
+          <BottomText>CHOOSE YOUR MINGLING MATCH</BottomText>
+          <BottomImage>
+            <MobileOnly>
+              <Image src="hand.png" alt="Hand" />
+            </MobileOnly>
+            <DesktopOnly>
+              <Image src="hand-right.png" alt="Hand" />
+            </DesktopOnly>
+          </BottomImage>
+        </Bottom>
+      </Row>
     </Wrapper>
   )
 }
@@ -203,10 +215,10 @@ const Grid = styled.div`
   display: grid;
   grid-template-columns: 1fr;
   grid-gap: 15px;
-  margin-bottom: 15px;
 
   @media (min-width: 769px) {
     grid-template-columns: 1fr 3fr 1fr;
+    margin-bottom: 15px;
   }
 `
 
@@ -382,15 +394,22 @@ const Col3Img2 = styled.div`
   grid-column: span 2;
 `
 
+const Row = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const Buttons = styled.div`
   display: grid;
   grid-gap: 10px;
+  order: 2;
   position: relative;
   z-index: 1;
 
   @media (min-width: 769px) {
     grid-gap: 15px;
     grid-template-columns: repeat(5, 1fr);
+    order: 1;
   }
 `
 
@@ -398,6 +417,8 @@ const Bottom = styled.div`
   align-items: center;
   display: grid;
   grid-template-columns: 35px auto 35px;
+  margin-bottom: 20px;
+  order: 1;
   place-content: center;
   position: relative;
 
@@ -411,6 +432,11 @@ const Bottom = styled.div`
     top: 50%;
     transform: translateY(-50%);
     width: calc(100% + 60px);
+  }
+
+  @media (min-width: 769px) {
+    margin-bottom: 0;
+    order: 2;
   }
 `
 const BottomText = styled.h2`
@@ -430,6 +456,25 @@ const BottomImage = styled.div`
   background-color: ${({ theme }) => theme.colors.navy};
   position: relative;
   padding: 0 10px;
+  transform: rotate(180deg);
+
+  @media (min-width: 769px) {
+    font-size: 2vw;
+    transform: rotate(0deg);
+  }
+`
+
+const MobileOnly = styled.div`
+  @media (min-width: 769px) {
+    display: none;
+  }
+`
+const DesktopOnly = styled.div`
+  display: none;
+
+  @media (min-width: 769px) {
+    display: block;
+  }
 `
 
 export default withTheme(IndexPage)
