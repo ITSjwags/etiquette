@@ -16,9 +16,8 @@ const IndexPage = props => {
       answerNumber >= totalCategories - 1 ? 0 : answerNumber + 1
 
     setActiveCategory(category)
-    console.log({ copy, totalCategories, answerNumber, nextNumber })
+
     if (category === activeCategory) {
-      console.log('yes')
       setAnswerNumber(nextNumber)
     }
   }
@@ -76,7 +75,7 @@ const IndexPage = props => {
             <Title activeCategory={activeCategory}>
               {copy[activeCategory].title}
             </Title>
-            <Content>
+            <Content activeCategory={activeCategory}>
               <ImageContainer activeCategory={activeCategory}>
                 <Image
                   src={
@@ -106,7 +105,7 @@ const IndexPage = props => {
                 src={copy[activeCategory].bannerBG}
                 alt="Banner background"
               />
-              <BannerTitle>
+              <BannerTitle activeCategory={activeCategory}>
                 {
                   copy[activeCategory].content.map(item => item.banner)[
                     answerNumber
@@ -160,25 +159,25 @@ const IndexPage = props => {
         <Button
           background={theme.colors.green}
           color={theme.colors.red}
-          onClick={() => console.log('click')}
+          onClick={() => onClickButton('ad')}
           text="ART DIRECTOR DESIGNER"
         />
         <Button
           background={theme.colors.red}
           color={theme.colors.green}
-          onClick={() => console.log('click')}
+          onClick={() => onClickButton('am')}
           text="ACCOUNT MANAGER"
         />
         <Button
           background={theme.colors.blue}
           color={theme.colors.red}
-          onClick={() => console.log('click')}
+          onClick={() => onClickButton('cd')}
           text="CREATIVE DIRECTOR"
         />
         <Button
           background={theme.colors.green}
           color={theme.colors.navy}
-          onClick={() => console.log('click')}
+          onClick={() => onClickButton('producer')}
           text="PRODUCER"
         />
       </Buttons>
@@ -259,6 +258,8 @@ const Box = styled.div`
   border: 1px solid
     ${({ activeCategory, theme }) => {
       if (activeCategory === 'copywriter') return theme.colors.brown
+      if (activeCategory === 'ad') return theme.colors.green
+      if (activeCategory === 'producer') return theme.colors.green
       return theme.colors.red
     }};
   display: grid;
@@ -273,6 +274,8 @@ const Title = styled.h2`
   background: ${({ theme }) => theme.colors.navy};
   color: ${({ activeCategory, theme }) => {
     if (activeCategory === 'copywriter') return theme.colors.brown
+    if (activeCategory === 'ad') return theme.colors.green
+    if (activeCategory === 'producer') return theme.colors.green
     return theme.colors.red
   }};
   display: inline-block;
@@ -290,15 +293,19 @@ const Title = styled.h2`
 `
 
 const Content = styled.div`
-  padding: 20px 5vw 30px;
+  padding: 20px ${({ activeCategory }) => (activeCategory ? '4vw' : '5vw')} 30px;
   width: 100%;
 `
 const ContentTitle = styled.p`
   color: ${({ activeCategory, theme }) => {
     if (activeCategory === 'copywriter') return theme.colors.brown
+    if (activeCategory === 'am') return theme.colors.green
+    if (activeCategory === 'cd') return theme.colors.blue
+    if (activeCategory === 'producer') return theme.colors.green
     return theme.colors.red
   }};
   font-size: 4vw;
+  line-height: 1.2;
   text-align: center;
 
   @media (min-width: 769px) {
@@ -316,7 +323,7 @@ const ImageContainer = styled.div`
     if (activeCategory === 'default') return '100%'
     return '100%'
   }};
-  margin: 0 auto;
+  margin: 0 auto 10px;
   max-width: ${({ activeCategory }) => {
     if (activeCategory === 'default') return '100%'
     return '30%'
@@ -332,7 +339,12 @@ const Banner = styled.div`
   width: 70%;
 `
 const BannerTitle = styled.h3`
-  color: ${({ theme }) => theme.colors.navy};
+  color: ${({ activeCategory, theme }) => {
+    if (activeCategory === 'ad') return theme.colors.red
+    if (activeCategory === 'am') return theme.colors.green
+    if (activeCategory === 'cd') return theme.colors.red
+    return theme.colors.navy
+  }};
   font-size: 4vw;
   left: 50%;
   position: absolute;

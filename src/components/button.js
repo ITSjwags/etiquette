@@ -31,11 +31,8 @@ const StyledButton = styled.button`
   width: 100%;
 
   &:hover {
-    transform: scale(1.05);
-  }
-  &:active,
-  &:focus {
-    transform: scale(1);
+    background: ${({ color }) => color};
+    color: ${({ background }) => background};
   }
 
   @media (min-width: 768px) {
