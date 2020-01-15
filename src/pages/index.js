@@ -279,11 +279,11 @@ const Title = styled.h2`
     return theme.colors.red
   }};
   display: inline-block;
-  font-size: 4vw;
+  font-size: 3.8vw;
   left: 50%;
   padding: 0 15px;
   position: absolute;
-  top: -1.3vw;
+  top: -1.7vw;
   transform: translateX(-50%);
   white-space: nowrap;
 
@@ -345,7 +345,7 @@ const BannerTitle = styled.h3`
     if (activeCategory === 'cd') return theme.colors.red
     return theme.colors.navy
   }};
-  font-size: 4vw;
+  font-size: 3.9vw;
   left: 50%;
   position: absolute;
   top: 50%;
@@ -384,11 +384,12 @@ const Col3Img2 = styled.div`
 
 const Buttons = styled.div`
   display: grid;
-  grid-gap: 15px;
+  grid-gap: 10px;
   position: relative;
   z-index: 1;
 
   @media (min-width: 769px) {
+    grid-gap: 15px;
     grid-template-columns: repeat(5, 1fr);
   }
 `
