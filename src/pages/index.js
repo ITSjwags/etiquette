@@ -28,24 +28,18 @@ const IndexPage = props => {
 
       <Grid>
         <Col1>
-          <Col1Img>
+          <Col1Left>
             <Image src="nike-shoe.png" alt="Nike shoe" />
-          </Col1Img>
-          <Col1Img>
             <Image src="candy-cane.png" alt="Candy cane" />
-          </Col1Img>
-          <Col1Img>
             <Image src="shutterstock.png" alt="Shutterstock" />
-          </Col1Img>
-          <Col1Img>
+          </Col1Left>
+          <Col1Right>
             <Image src="overalls.png" alt="Overalls" />
-          </Col1Img>
-          <Col1Img>
             <Image src="spotify.png" alt="Spotify" />
-          </Col1Img>
-          <Col1Img6>
+          </Col1Right>
+          <Col1Img3>
             <Image src="one-show.png" alt="One show" />
-          </Col1Img6>
+          </Col1Img3>
         </Col1>
 
         <Col2>
@@ -208,7 +202,7 @@ const IndexPage = props => {
 }
 
 const Wrapper = styled.div`
-  padding: 30px 30px 0 30px;
+  padding: 15px 15px 0 15px;
 `
 
 const Grid = styled.div`
@@ -226,18 +220,21 @@ const Col1 = styled.div`
   display: none;
 
   @media (min-width: 769px) {
-    break-inside: avoid;
-    column-count: 2;
-    column-gap: 15px;
-    display: block;
+    display: grid;
+    grid-template-columns: 1fr 1.25fr;
+    grid-gap: 15px;
   }
 `
-const Col1Img = styled.div`
-  break-inside: avoid;
-  padding-bottom: 15px;
+const Col1Img3 = styled.div`
+  grid-column: span 2;
 `
-const Col1Img6 = styled(Col1Img)`
-  column-span: all;
+const Col1Left = styled.div`
+  display: grid;
+  grid-gap: 15px;
+`
+const Col1Right = styled.div`
+  display: grid;
+  grid-gap: 15px;
 `
 
 const Col2 = styled.div`
@@ -246,23 +243,23 @@ const Col2 = styled.div`
 `
 const Col2Header = styled.div`
   display: grid;
-  grid-template-columns: 0.84fr 0.9fr 0.74fr 0.7fr 0.7fr;
+  grid-template-columns: 0.65fr 0.7fr 0.57fr 0.65fr 0.65fr;
   grid-gap: 15px;
 `
 const Col2Img4 = styled.div`
   display: grid;
   grid-column: span 2;
-  grid-gap: 15px;
-  grid-template-rows: 1fr 1.75fr;
+  grid-gap: 5px;
+  grid-template-rows: 0.25fr 1fr;
 `
 const Col2Img4Top = styled.div`
   display: grid;
-  grid-template-columns: 1.25fr 1fr;
+  grid-template-columns: 1.1fr 1fr;
   grid-gap: 10px;
 `
 const Col2Img4Bottom = styled.div`
   display: grid;
-  grid-template-columns: 1fr 1.25fr;
+  grid-template-columns: 1fr 1.3fr;
   grid-gap: 10px;
 `
 
