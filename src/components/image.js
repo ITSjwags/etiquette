@@ -27,7 +27,10 @@ const Image = props => {
       `}
       render={data => {
         const image = data.images.edges.find(edge => {
-          return edge.node.relativePath === src
+          // doing this because images coming back from cms have a slash in front of url
+          const matched = src.split('/')[1] ? src.split('/')[1] : src
+
+          return edge.node.relativePath === matched
         })
 
         if (!image) {
