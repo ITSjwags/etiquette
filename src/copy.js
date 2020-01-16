@@ -7,7 +7,7 @@ const copy = {
         icon: 'brain.png',
         alt: 'brain',
         title:
-          "You may not see any tattoos on a copywriter, that's because they're inked on their brain. Ask them about the tattoo they've been thinking about getting. Warning: it's deep. ",
+          "You may not see any tattoos on a copywriter, that's because they're inked on their brain. Ask them about the tattoo they've been thinking about getting. Warning: it's deep.",
         banner: 'TATTOOS ARE TOPICS',
       },
       {
