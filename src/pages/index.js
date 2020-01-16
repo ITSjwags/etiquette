@@ -3,7 +3,7 @@ import styled, { withTheme } from 'styled-components'
 import Button from '../components/button'
 import Image from '../components/image'
 import SEO from '../components/seo'
-import copy from '../copy'
+import copy from '../answers'
 
 const IndexPage = props => {
   const { theme } = props
@@ -11,7 +11,7 @@ const IndexPage = props => {
   const [answerNumber, setAnswerNumber] = useState(0)
 
   const onClickButton = category => {
-    const totalCategories = copy[category].content.length
+    const totalCategories = copy[category].answers.length
     const nextNumber =
       answerNumber >= totalCategories - 1 ? 0 : answerNumber + 1
 
@@ -73,21 +73,21 @@ const IndexPage = props => {
               <ImageContainer activeCategory={activeCategory}>
                 <Image
                   src={
-                    copy[activeCategory].content.map(item => item.icon)[
+                    copy[activeCategory].answers.map(item => item.icon)[
                       answerNumber
                     ]
                   }
                   alt={
-                    copy[activeCategory].content.map(item => item.alt)[
+                    copy[activeCategory].answers.map(item => item.alt)[
                       answerNumber
                     ]
                   }
                 />
               </ImageContainer>
-              {copy[activeCategory].content.map(item => item.title) && (
+              {copy[activeCategory].answers.map(item => item.title) && (
                 <ContentTitle activeCategory={activeCategory}>
                   {
-                    copy[activeCategory].content.map(item => item.title)[
+                    copy[activeCategory].answers.map(item => item.title)[
                       answerNumber
                     ]
                   }
@@ -101,7 +101,7 @@ const IndexPage = props => {
               />
               <BannerTitle activeCategory={activeCategory}>
                 {
-                  copy[activeCategory].content.map(item => item.banner)[
+                  copy[activeCategory].answers.map(item => item.banner)[
                     answerNumber
                   ]
                 }
