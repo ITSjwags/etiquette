@@ -1,0 +1,102 @@
+backend:
+  name: git-gateway
+  branch: master
+
+# publish_mode: editorial_workflow
+media_folder: src/images
+public_folder: static/
+
+collections:
+  - name: content
+    label: Content
+    files:
+      - label: 'Answers'
+        name: 'answers'
+        file: 'src/answers.json'
+        fields:
+          - label: COPYWRITER
+            name: copywriter
+            widget: list
+            fields:
+              - { label: Icon, name: icon, widget: image }
+              - { label: Alt Text, name: alt, widget: string }
+              - { label: Title, name: title, widget: string }
+              - { label: Banner Text, name: banner, widget: string }
+      # - label: 'COPYWRITER'
+      #   name: 'copywriter'
+      #   file: 'src/copy.js'
+      #   fields:
+      #     - { label: Title, name: title, widget: string }
+      #     - label: Answers
+      #       name: content
+      #       widget: list
+      #       fields:
+      #         - { label: Icon, name: icon, widget: image }
+      #         - { label: Alt Text, name: alt, widget: string }
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: Banner Text, name: banner, widget: string }
+      # - label: 'ART DIRECTOR DESIGNER'
+      #   name: 'ad'
+      #   file: 'src/copy.js'
+      #   fields:
+      #     - { label: Title, name: title, widget: string }
+      #     - label: Answers
+      #       name: content
+      #       widget: list
+      #       fields:
+      #         - { label: Icon, name: icon, widget: image }
+      #         - { label: Alt Text, name: alt, widget: string }
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: Banner Text, name: banner, widget: string }
+      # - label: 'ACCOUNT MANAGER'
+      #   name: 'am'
+      #   file: 'src/copy.js'
+      #   fields:
+      #     - { label: Title, name: title, widget: string }
+      #     - label: Answers
+      #       name: content
+      #       widget: list
+      #       fields:
+      #         - { label: Icon, name: icon, widget: image }
+      #         - { label: Alt Text, name: alt, widget: string }
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: Banner Text, name: banner, widget: string }
+      # - label: 'CREATIVE DIRECTOR'
+      #   name: 'cd'
+      #   file: 'src/copy.js'
+      #   fields:
+      #     - { label: Title, name: title, widget: string }
+      #     - label: Answers
+      #       name: content
+      #       widget: list
+      #       fields:
+      #         - { label: Icon, name: icon, widget: image }
+      #         - { label: Alt Text, name: alt, widget: string }
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: Banner Text, name: banner, widget: string }
+      # - label: 'PRODUCER'
+      #   name: 'producer'
+      #   file: 'src/copy.js'
+      #   fields:
+      #     - { label: Title, name: title, widget: string }
+      #     - label: Answers
+      #       name: content
+      #       widget: list
+      #       fields:
+      #         - { label: Icon, name: icon, widget: image }
+      #         - { label: Alt Text, name: alt, widget: string }
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: Banner Text, name: banner, widget: string }
+      # - label: 'DEFAULT'
+      #   name: 'default'
+      #   file: 'src/copy.js'
+      #   fields:
+      #     - { label: Title, name: title, widget: string }
+      #     - label: Answers
+      #       name: content
+      #       widget: list
+      #       fields:
+      #         - { label: Icon, name: icon, widget: image }
+      #         - { label: Alt Text, name: alt, widget: string }
+      #         - { label: Title, name: title, widget: string }
+      #         - { label: Banner Text, name: banner, widget: string }
