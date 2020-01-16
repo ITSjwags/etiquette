@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import buttonBG from '../images/button-texture.png'
 
 const Button = props => {
   const { background, color, text, onClick } = props
@@ -18,7 +19,7 @@ const Button = props => {
 }
 
 const StyledButton = styled.button`
-  background: ${({ background }) => background};
+  background-color: ${({ background }) => background};
   border: none;
   border-radius: 10px;
   color: ${({ color }) => color};
@@ -31,11 +32,14 @@ const StyledButton = styled.button`
   width: 100%;
 
   &:hover {
-    background: ${({ color }) => color};
+    background-color: ${({ color }) => color};
     color: ${({ background }) => background};
   }
 
   @media (min-width: 768px) {
+    background-image: url(${buttonBG});
+    background-repeat: no-repeat;
+    background-size: cover;
     font-size: 3.3vw;
   }
 `
