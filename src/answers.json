@@ -3,7 +3,7 @@
     "title": "'Tis The Season To Small Talk With Your Significant Other's Copywriter",
     "answers": [
       {
-        "icon": "brain.png",
+        "icon": "/brain.png",
         "alt": "brain",
         "title": "You may not see any tattoos on a copywriter, that's because they're inked on their brain. Ask them about the tattoo they've been thinking about getting. Warning: it's deep.",
         "banner": "TATTOOS ARE TOPICS"
@@ -185,7 +185,6 @@
       {
         "icon": "logo@2x.png",
         "alt": "Plus One Etiquette",
-        "title": "",
         "banner": "A GUIDE TO MINGLING AT AN AGENCY HOLIDAY PARTY"
       }
     ],
