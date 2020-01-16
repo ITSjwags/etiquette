@@ -41,6 +41,7 @@ collections:
                   - { label: Alt Text, name: alt, widget: string }
                   - { label: Title, name: title, widget: string }
                   - { label: Banner Text, name: banner, widget: string }
+              - { label: Banner Background, name: bannerBG, widget: image }
           - label: 'ACCOUNT MANAGER'
             name: 'am'
             widget: object
@@ -54,6 +55,7 @@ collections:
                   - { label: Alt Text, name: alt, widget: string }
                   - { label: Title, name: title, widget: string }
                   - { label: Banner Text, name: banner, widget: string }
+              - { label: Banner Background, name: bannerBG, widget: image }
           - label: 'CREATIVE DIRECTOR'
             name: 'cd'
             widget: object
@@ -67,6 +69,7 @@ collections:
                   - { label: Alt Text, name: alt, widget: string }
                   - { label: Title, name: title, widget: string }
                   - { label: Banner Text, name: banner, widget: string }
+              - { label: Banner Background, name: bannerBG, widget: image }
           - label: 'PRODUCER'
             name: 'producer'
             widget: object
@@ -80,6 +83,7 @@ collections:
                   - { label: Alt Text, name: alt, widget: string }
                   - { label: Title, name: title, widget: string }
                   - { label: Banner Text, name: banner, widget: string }
+              - { label: Banner Background, name: bannerBG, widget: image }
           - label: 'DEFAULT'
             name: 'default'
             widget: object
@@ -91,5 +95,5 @@ collections:
                 fields:
                   - { label: Icon, name: icon, widget: image }
                   - { label: Alt Text, name: alt, widget: string }
-                  - { label: Title, name: title, widget: string }
                   - { label: Banner Text, name: banner, widget: string }
+              - { label: Banner Background, name: bannerBG, widget: image }
